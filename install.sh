@@ -20,7 +20,7 @@ fi
 echo "📱 Detected OS: $OS"
 
 # Create config directories
-mkdir -p ~/.config/{fish,alacritty,wezterm,wave}
+mkdir -p ~/.config/{fish,alacritty,wezterm,wave,zellij}
 if [[ "$OS" == "macos" ]]; then
     mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
 else
@@ -51,6 +51,15 @@ ln -sf "$(pwd)/terminals/wezterm/wezterm.lua" ~/.config/wezterm/wezterm.lua
 
 # Wave Terminal
 ln -sf "$(pwd)/terminals/wave/config.json" ~/.config/wave/config.json
+
+# Zellij
+ln -sf "$(pwd)/zellij/config.kdl" ~/.config/zellij/config.kdl
+
+# Karabiner-Elements (macOS only)
+if [[ "$OS" == "macos" ]]; then
+    mkdir -p ~/.config/karabiner
+    ln -sf "$(pwd)/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
+fi
 
 # Git config (if exists)
 if [[ -f "git/.gitconfig" ]]; then

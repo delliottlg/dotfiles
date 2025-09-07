@@ -1,0 +1,107 @@
+// Zellij configuration matching your terminal setup
+// Place at: ~/.config/zellij/config.kdl
+
+// Theme to match your dark terminals
+theme "custom-dark"
+
+// Default shell (matches your other configs)
+default_shell "fish"
+
+// Simplified keybindings (anti-tmux approach)
+keybinds {
+    normal {
+        // Pane management (Super key reserved for WM, use Alt+Shift for internal navigation)
+        bind "Alt n" { NewPane; }
+        bind "Alt Shift h" { MoveFocus "Left"; }
+        bind "Alt Shift l" { MoveFocus "Right"; }
+        bind "Alt Shift j" { MoveFocus "Down"; }
+        bind "Alt Shift k" { MoveFocus "Up"; }
+        bind "Alt =" "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+        
+        // Tab management (Alt+numbers for tabs, Super+numbers reserved for workspaces)
+        bind "Alt t" { NewTab; }
+        bind "Alt Shift 1" { GoToTab 1; }
+        bind "Alt Shift 2" { GoToTab 2; }
+        bind "Alt Shift 3" { GoToTab 3; }
+        bind "Alt Shift 4" { GoToTab 4; }
+        bind "Alt Shift 5" { GoToTab 5; }
+        
+        // Session management (keeping minimal Ctrl usage)
+        bind "Alt p" { SwitchToMode "Pane"; }
+        bind "Alt s" { SwitchToMode "Session"; }
+        bind "Alt q" { Quit; }
+        bind "Alt d" { Detach; }
+    }
+    
+    pane {
+        bind "n" { NewPane; SwitchToMode "Normal"; }
+        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+    }
+}
+
+// Custom theme matching your terminal colors
+themes {
+    custom-dark {
+        fg "#c5c8c6"
+        bg "#050505"
+        red "#cc6666"
+        green "#b5bd68"
+        yellow "#f0c674"
+        blue "#81a2be"
+        magenta "#b294bb"
+        orange "#de935f"
+        cyan "#8abeb7"
+        black "#1d1f21"
+        white "#c5c8c6"
+    }
+}
+
+// UI configuration
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name false
+    }
+}
+
+// Plugin configuration
+plugins {
+    tab-bar { path "tab-bar"; }
+    status-bar { path "status-bar"; }
+    strider { path "strider"; }
+    compact-bar { path "compact-bar"; }
+}
+
+// Layout templates
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+    }
+}
+
+// Session behavior
+session_serialization false
+pane_frames true
+auto_layout true
+default_layout "compact"
+
+// Copy/paste
+copy_command "pbcopy"          // macOS
+// copy_command "wl-copy"      // Linux Wayland  
+// copy_command "xclip -selection clipboard"  // Linux X11
+
+// Scrollback
+scrollback_editor "nvim"       // or "vim", "nano", etc.
