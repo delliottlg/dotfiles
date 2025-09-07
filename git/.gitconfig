@@ -1,0 +1,18 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = delliottlg
+	email = 156353666+delliottlg@users.noreply.github.com
+[core]
+	excludesfile = /Users/dd/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /private/var/folders/mr/fv69sjtj50gfwj42cpk34c8w0000gn/T/AppTranslocation/DD1D3B7A-FAAA-48E0-9BFA-24CC36C2D8FB/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/dd/.stCommitMsg
