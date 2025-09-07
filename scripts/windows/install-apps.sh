@@ -13,21 +13,23 @@ if grep -q Microsoft /proc/version 2>/dev/null; then
     exec ../linux/install-apps.sh
 fi
 
-# Check for package managers
-if command -v choco &> /dev/null; then
-    echo "🍫 Using Chocolatey package manager"
+# Check for package managers (prefer Scoop over Chocolatey)
+if command -v scoop &> /dev/null; then
+    echo "🪣 Using Scoop package manager (preferred)"
+    
+    # Add extras bucket for more packages
+    scoop bucket add extras
+    scoop bucket add nerd-fonts
     
     # Install terminal emulators
     echo "📟 Installing terminal emulators..."
-    choco install -y alacritty wezterm
+    scoop install alacritty wezterm
     
-    # Fish shell
     echo "🐠 Installing fish shell..."
-    choco install -y fish
+    scoop install fish
     
-    # Fonts
     echo "🔤 Installing JetBrains Mono Nerd Font..."
-    choco install -y font-jetbrainsmono-nerd-font
+    scoop install JetBrainsMono-NF
     
 elif command -v winget &> /dev/null; then
     echo "📦 Using winget package manager"

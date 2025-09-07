@@ -15,6 +15,10 @@ abbr -a gp  'git push'
 abbr -a cdghl 'cd ~/Documents/GitHub/lingraphica-app'
 abbr -a cdgh 'cd ~/Documents/GitHub'
 
+# Python/uv shortcuts
+abbr -a uvenv 'uv venv && source .venv/bin/activate'
+abbr -a uvi 'uv pip install'
+
 # Ghostty shell integration (extras when launched from Ghostty)
 if set -q GHOSTTY_RESOURCES_DIR
     source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
