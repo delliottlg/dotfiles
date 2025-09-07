@@ -1,0 +1,66 @@
+{
+  "comment": "Wave Terminal configuration matching Ghostty setup",
+  "comment2": "Place this file at: ~/.config/wave/config.json (all platforms)",
+  
+  "terminal": {
+    "fontfamily": "JetBrainsMono Nerd Font",
+    "fontsize": 14,
+    "fontweight": "normal",
+    "disablewebsecurity": false
+  },
+  
+  "window": {
+    "transparency": 0.92,
+    "blur": true,
+    "padding": "10px 10px 8px 8px"
+  },
+  
+  "theme": {
+    "background": "#050505",
+    "foreground": "#c5c8c6",
+    "cursor": "#c5c8c6",
+    "selection": "#373b41",
+    
+    "black": "#1d1f21",
+    "red": "#cc6666", 
+    "green": "#b5bd68",
+    "yellow": "#f0c674",
+    "blue": "#81a2be",
+    "magenta": "#b294bb",
+    "cyan": "#8abeb7",
+    "white": "#c5c8c6",
+    
+    "brightBlack": "#666666",
+    "brightRed": "#d54e53",
+    "brightGreen": "#b9ca4a", 
+    "brightYellow": "#e7c547",
+    "brightBlue": "#7aa6da",
+    "brightMagenta": "#c397d8",
+    "brightCyan": "#70c0b1",
+    "brightWhite": "#eaeaea"
+  },
+  
+  "shell": {
+    "defaultshell": "fish",
+    "shellpath": {
+      "darwin": "/opt/homebrew/bin/fish",
+      "linux": "/usr/bin/fish", 
+      "windows": "pwsh.exe"
+    }
+  },
+  
+  "keybindings": {
+    "cmd+n": "new-window",
+    "cmd+t": "new-tab", 
+    "cmd++": "increase-font-size",
+    "cmd+-": "decrease-font-size",
+    "cmd+0": "reset-font-size"
+  },
+  
+  "ai": {
+    "enabled": true,
+    "provider": "claude"
+  },
+  
+  "workingdirectory": "~"
+}
