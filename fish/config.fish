@@ -2,7 +2,11 @@
 set -g fish_greeting ''
 
 # Paths
-fish_add_path ~/.local/bin ~/bin
+fish_add_path ~/.local/bin ~/bin /opt/homebrew/bin /usr/local/bin
+fish_add_path ~/Documents/projects/apiOrg ~/Library/pnpm
+fish_add_path ~/.dotnet/tools /Library/Frameworks/Mono.framework/Versions/Current/Commands
+fish_add_path /Applications/Wireshark.app/Contents/MacOS /Applications/Ghostty.app/Contents/MacOS
+fish_add_path ~/Library/Android/sdk/emulator ~/Library/Android/sdk/platform-tools
 
 # Git abbrevs (expand before run)
 abbr -a gs  'git status'
